@@ -111,21 +111,26 @@ export const authSignin = (email, password) => {
 export const authCheckState = () => {
   return (dispatch) => {
     const token = localStorage.getItem("token");
+    console.log(token);
     if (!token) {
-      dispatch(logout());
+      // dispatch(logout());
+      console.log("not token");
     } else {
       const expirationDate = new Date(localStorage.getItem("expirationDate"));
-      if (expirationDate <= new Date()) {
-        dispatch(logout());
-      } else {
+      // if (expirationDate <= new Date()) {
+      //   // dispatch(logout());
+      //   console.log("expired");
+      // }
+      // else {
         const userId = localStorage.getItem("userId");
+        console.log(token);
         dispatch(authSuccess(token, userId));
         dispatch(
           checkAuthTimeOut(
             (expirationDate.getTime() - new Date().getTime()) / 1000
           )
         );
-      }
+      // }
     }
   };
 };

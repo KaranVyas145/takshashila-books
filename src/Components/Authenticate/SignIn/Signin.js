@@ -6,6 +6,7 @@ import * as actions from "../../../Store/action/index";
 import { connect } from "react-redux";
 import { updateObject, checkValidity } from "../../../shared/Utility";
 import Input from "../../Input/Input";
+import Redirect from "react-router/Redirect";
 
 class Signup extends Component {
   state = {
@@ -92,36 +93,21 @@ class Signup extends Component {
       errorMessage = <p>{this.props.error.message}</p>;
     }
 
+    let authRedirect = null;
+    if(this.props.isAuthenticated){
+      authRedirect= <Redirect to="/" />
+    }
+
     return (
       <div className="Signup">
         <h1>Sign in</h1>
         {errorMessage}
-        {/* <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="email"
-            {...register("email", {
-              required: "Enter a valid email id",
-              pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-            })}
-          />
-          <p> {errors.email && <span>{errors.email.message}</span>} </p>
-          <br></br>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Invalid Password",
-              minLength: 6,
-            })}
-          />
-          <p> {errors.password && <span>{errors.password.message}</span>} </p>
-          <br />
-          <input type="submit" />
-        </form> */}
         <form onSubmit={this.submitHandler}>
           {form}
           <input type="submit" value="Submit"/>
         </form>
         <NavLink to="/auth/signup">Create a new account?</NavLink>
+        {authRedirect}
       </div>
     );
   }

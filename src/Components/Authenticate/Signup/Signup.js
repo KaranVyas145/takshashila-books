@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "./Signup.css";
-// import { useForm } from "react-hook-form";
 import * as actions from "../../../Store/action/index";
 import { connect } from "react-redux";
 import { updateObject, checkValidity } from "../../../shared/Utility";
 import Input from "../../Input/Input";
+import { Redirect } from "react-router";
 
 class Signup extends Component {
   state = {
@@ -65,16 +65,6 @@ class Signup extends Component {
     );
   };
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   watch,
-  //   formState: { errors },
-  // } = useForm();
-  // const onSubmit = (data) => {
-  //   console.log(data.email, data.password);
-  // };
-  // console.log(watch("email"));
   render() {
     const formElementsArray = [];
     for (let key in this.state.controls) {
@@ -102,31 +92,16 @@ class Signup extends Component {
       errorMessage = <p>{this.props.error.message}</p>;
     }
 
+    let authRedirect = null;
+    if(this.props.isAuthenticated){
+      authRedirect= <Redirect to="/" />
+    }
+
     return (
       <div className="Signup">
+        {authRedirect}
         <h1>Sign up</h1>
         {errorMessage}
-        {/* <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="email"
-            {...register("email", {
-              required: "Enter a valid email id",
-              pattern: /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-            })}
-          />
-          <p> {errors.email && <span>{errors.email.message}</span>} </p>
-          <br></br>
-          <input
-            type="password"
-            {...register("password", {
-              required: "Invalid Password",
-              minLength: 6,
-            })}
-          />
-          <p> {errors.password && <span>{errors.password.message}</span>} </p>
-          <br />
-          <input type="submit" />
-        </form> */}
         <form onSubmit={this.submitHandler}>
           {form}
           <input type="submit" value="Submit"/>

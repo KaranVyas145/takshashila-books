@@ -7,10 +7,16 @@ import Signin from "./Components/Authenticate/SignIn/Signin";
 import Signup from "./Components/Authenticate/Signup/Signup";
 import Home from "./Components/Home/Home";
 import Navigation from "./Components/Home/Navigation/Navigation";
+import Logout from "./Components/Authenticate/Logout/Logout";
 import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Authenticate from "./Components/Authenticate/Authenticate";
 
 class App extends Component {
+  componentDidMount() {
+    console.log("did mount appjs");
+    this.props.onTryAutoSignup();
+  }
+
   render() {
     let routes = (
       <Switch>
@@ -27,6 +33,7 @@ class App extends Component {
           <Route path="/auth" exact component={Authenticate} />
           <Route path="/auth/login" component={Signin} />
           <Route path="/auth/signup" component={Signup} />
+          <Route path="/auth/logout" component={Logout} />
           <Route path="/" component={Home} />
         </Switch>
       );
@@ -34,7 +41,7 @@ class App extends Component {
 
     return (
       <div>
-        <Navigation />
+        <Navigation isAuthenticated={this.props.isAuthenticated} />
         {routes}
       </div>
     );
@@ -49,7 +56,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onTryAutoSignup: () => dispatch(actions.authCheckState),
+    onTryAutoSignup: () => dispatch(actions.authCheckState()),
   };
 };
 
