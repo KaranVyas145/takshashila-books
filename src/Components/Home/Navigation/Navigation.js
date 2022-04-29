@@ -20,14 +20,16 @@ const Navigation = (props) => {
   if (props.isAuthenticated) {
     navItems = (
       <div className="NavItems">
-        <NavLink to="/">
+        <NavLink to="/"className="navlink">
           <NavigationItem name="Home" />
         </NavLink>
-        <NavigationItem name="Genre" />
+        {/* <NavigationItem name="Genre" /> */}
         <NavLink to="/about">
           <NavigationItem name="About" />
         </NavLink>
-        <NavigationItem name="Contact Us" />
+        <NavLink to="/contact">
+          <NavigationItem name="Contact Us" />
+        </NavLink>
         <NavLink to="/auth/logout">
           <NavigationItem name="Logout" />
         </NavLink>

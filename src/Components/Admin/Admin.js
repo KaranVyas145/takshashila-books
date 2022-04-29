@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { updateObject, checkValidity } from "../../shared/Utility";
 import Input from "../Input/Input";
+import "../../shared/button.css"
 
 class Admin extends Component {
   componentDidMount(){
@@ -173,7 +174,8 @@ class Admin extends Component {
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
-          <input type="submit" value="Submit" />
+          {/* <input type="submit" value="Submit" className="submit"/> */}
+          <button type="submit" class="custom-btn btn-3"><span>Add Book</span></ button>
         </form>
       </div>
     );

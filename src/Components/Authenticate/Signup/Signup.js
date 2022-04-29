@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { updateObject, checkValidity } from "../../../shared/Utility";
 import Input from "../../Input/Input";
 import { Redirect } from "react-router";
+import "../../../shared/button.css"
 
 class Signup extends Component {
   state = {
@@ -104,7 +105,8 @@ class Signup extends Component {
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
-          <input type="submit" value="Submit"/>
+          {/* <input type="submit" value="Submit"/> */}
+          <button type="submit" class="custom-btn btn-3"><span>Sign Up</span></ button>
         </form>
         <NavLink to="/auth/login">Already have an account?</NavLink>
       </div>

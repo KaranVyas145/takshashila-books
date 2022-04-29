@@ -12,6 +12,10 @@
   font-family: 'Inter', sans-serif;
 }
 
+.content{
+  width: 60%;
+}
+
 .content p{
     margin: 20px;
 }
