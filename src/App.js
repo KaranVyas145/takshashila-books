@@ -12,6 +12,7 @@ import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import Authenticate from "./Components/Authenticate/Authenticate";
 import Admin from "./Components/Admin/Admin";
 import About from "./Components/About/About";
+import Contact from "./Components/Contact/Contact";
 
 class App extends Component {
   componentDidMount() {
@@ -27,6 +28,7 @@ class App extends Component {
         <Route path="/auth/signup" component={Signup} />
         <Route path="/admin" component={Admin} />
         <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
         <Redirect to="/auth/login" />
       </Switch>
     );
@@ -40,6 +42,7 @@ class App extends Component {
           <Route path="/auth/logout" component={Logout} />
           <Route path="/admin" component={Admin} />
           <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
           <Route path="/" component={Home} />
           <Redirect to="/" />
 

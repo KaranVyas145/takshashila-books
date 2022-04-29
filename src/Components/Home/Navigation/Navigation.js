@@ -24,7 +24,9 @@ const Navigation = (props) => {
           <NavigationItem name="Home" />
         </NavLink>
         <NavigationItem name="Genre" />
-        <NavigationItem name="About" />
+        <NavLink to="/about">
+          <NavigationItem name="About" />
+        </NavLink>
         <NavigationItem name="Contact Us" />
         <NavLink to="/auth/logout">
           <NavigationItem name="Logout" />
