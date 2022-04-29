@@ -1,8 +1,8 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
 import "./imageSliders.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; 
-import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 // const images = [
 //   { url: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" },
@@ -11,33 +11,33 @@ import { Carousel } from 'react-responsive-carousel';
 // ];
 
 const App = () => {
-  const [source, setSource]= useState("https://source.unsplash.com/random/1600x900/?books")
+  const [source, setSource] = useState(
+    "https://source.unsplash.com/random/1600x900/?books"
+  );
   return (
-    <div className="ImageSliders">
-      <Carousel
-        showArrows={true}
-        autoPlay={true}
-        swipeable={true}
-        infiniteLoop={true}
-        showThumbs={false}
-        // onChange={onChange}
-        // onClickItem={onClickItem}
-        // onClickThumb={onClickThumb}
-      >
-        <div>
-          <img src={source} />
-          <p className="legend">Legend 1</p>
-        </div>
-        <div>
-          <img src="https://source.unsplash.com/random/1600x900/?book"/>
-          <p className="legend">Legend 2</p>
-        </div>
-        <div>
-          <img src="https://source.unsplash.com/random/1600x900/?read"
-           />
-          <p className="legend">Legend 3</p>
-        </div>
-      </Carousel>
+    <div className="container">
+      <div className="ImageSliders">
+        <Carousel
+          showArrows={true}
+          autoPlay={true}
+          swipeable={true}
+          infiniteLoop={true}
+          showThumbs={false}
+          // onChange={onChange}
+          // onClickItem={onClickItem}
+          // onClickThumb={onClickThumb}
+        >
+          <div>
+            <img src={source} />]
+          </div>
+          <div>
+            <img src="https://source.unsplash.com/random/1600x900/?book" />
+          </div>
+          <div>
+            <img src="https://source.unsplash.com/random/1600x900/?read" />
+          </div>
+        </Carousel>
+      </div>
     </div>
   );
 };

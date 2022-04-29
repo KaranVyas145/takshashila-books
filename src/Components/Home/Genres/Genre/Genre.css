@@ -1,9 +1,10 @@
 .Genre{
-    height: 300px;
-    padding: 20px;
+    /* height: 300px; */
+    /* padding: 50px; */
     margin: 10px 0;
     border: 2px solid black;
     overflow-x: scroll;
+    width: 100%;
     overflow-y:hidden;
 }
 
@@ -13,10 +14,11 @@
 }
 
 .BookContainer{
+    /* margin: 20px 0; */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100vw;
+    /* height: 100%; */
+    width: 100%;
 }
 

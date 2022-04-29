@@ -15,7 +15,7 @@ const Navigation = (props) => {
     </div>
   );
 
-  console.log(props.isAuthenticated);
+  // console.log(props.isAuthenticated);
 
   if (props.isAuthenticated) {
     navItems = (

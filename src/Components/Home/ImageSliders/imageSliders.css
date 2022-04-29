@@ -1,13 +1,8 @@
 .ImageSliders{
-    width: 100%;
-    width: 100vw;
-    box-sizing: border-box;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
 }
 
 .ImageSliders img{
     height: 500px;
-    width: 500px;
+    object-fit: cover;
 }

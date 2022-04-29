@@ -35,7 +35,7 @@ export const logout = () => {
 export const checkAuthTimeOut = (expirationTime) => {
   return (dispatch) => {
     setTimeout(() => {
-      dispatch(logout());
+      // dispatch(logout());
     }, expirationTime * 1000);
   };
 };
@@ -111,7 +111,7 @@ export const authSignin = (email, password) => {
 export const authCheckState = () => {
   return (dispatch) => {
     const token = localStorage.getItem("token");
-    console.log(token);
+    // console.log(token);
     if (!token) {
       // dispatch(logout());
       console.log("not token");
@@ -123,7 +123,7 @@ export const authCheckState = () => {
       // }
       // else {
         const userId = localStorage.getItem("userId");
-        console.log(token);
+        // console.log(token);
         dispatch(authSuccess(token, userId));
         dispatch(
           checkAuthTimeOut(

@@ -94,12 +94,14 @@ class Admin extends Component {
         elementType: "select",
         elementConfig: {
           options: [
+            { value: "drama", displayValue: "Drama" },
+            { value: "romance", displayValue: "Romance" },
             { value: "fantasy", displayValue: "Fantasy" },
             { value: "horror", displayValue: "Horror" },
             { value: "scifi", displayValue: "Sci-fi" },
             { value: "thriller", displayValue: "Thriller" },
             { value: "nonfiction", displayValue: "Non Fiction" },
-            { value: "comics", displayValue: "Graphic Novels" }, { value: "drama", displayValue: "Drama" },
+            { value: "comics", displayValue: "Graphic Novels" }
           ],
         },
         value: "fastest",
