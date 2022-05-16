@@ -63,7 +63,7 @@ const Navigation = (props) => {
   return (
     <div className="Navigation">
       <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
-        <h3>Takshashila</h3>
+        <h3>Hooked</h3>
       </NavLink>
       {navItems}
     </div>
