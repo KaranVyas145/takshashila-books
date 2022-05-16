@@ -16,19 +16,18 @@ import Contact from "./Components/Contact/Contact";
 
 class App extends Component {
   componentDidMount() {
-    console.log("did mount appjs");
     this.props.onTryAutoSignup();
   }
 
   render() {
     let routes = (
       <Switch>
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
         <Route path="/auth" exact component={Authenticate} />
         <Route path="/auth/login" component={Signin} />
         <Route path="/auth/signup" component={Signup} />
-        <Route path="/admin" component={Admin} />
-        <Route path="/about" component={About} />
-        <Route path="/contact" component={Contact} />
+        {/* <Route path="/admin" component={Admin} /> */}
         <Redirect to="/auth/login" />
       </Switch>
     );
@@ -40,19 +39,37 @@ class App extends Component {
           <Route path="/auth/login" component={Signin} />
           <Route path="/auth/signup" component={Signup} />
           <Route path="/auth/logout" component={Logout} />
+          {/* <Route path="/admin" component={Admin} /> */}
+          <Route path="/about" component={About} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/" component={Home} />
+          <Redirect to="/" />
+        </Switch>
+      );
+
+      console.log(this.props.isAdmin);
+
+      if(this.props.isAdmin){
+        routes=(
+          <Switch>
+          <Route path="/auth" exact component={Authenticate} />
+          <Route path="/auth/login" component={Signin} />
+          <Route path="/auth/signup" component={Signup} />
+          <Route path="/auth/logout" component={Logout} />
           <Route path="/admin" component={Admin} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/" component={Home} />
           <Redirect to="/" />
-
         </Switch>
-      );
+        )
+      }
+      console.log(routes);
     }
 
     return (
       <div>
-        <Navigation isAuthenticated={this.props.isAuthenticated} />
+        <Navigation isAuthenticated={this.props.isAuthenticated} isAdmin={this.props.isAdmin} />
         {routes}
       </div>
     );
@@ -62,6 +79,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.auth.token !== null,
+    isAdmin: state.auth.userId === "EwXgiewGTQeWtcUNUsosKOB6jd43"
   };
 };
 

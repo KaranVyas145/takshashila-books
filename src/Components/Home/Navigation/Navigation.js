@@ -1,5 +1,4 @@
 import React from "react";
-import { Redirect } from "react-router";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 import NavigationItem from "./NavigationItem/NavigationItem";
@@ -7,15 +6,17 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 const Navigation = (props) => {
   let navItems = (
     <div className="NavItems">
-      <NavigationItem name="About" />
-      <NavigationItem name="Contact Us" />
+       <NavLink to="/about">
+          <NavigationItem name="About" />
+        </NavLink>
+        <NavLink to="/contact">
+          <NavigationItem name="Contact Us" />
+        </NavLink>
       <NavLink to="/auth">
         <NavigationItem name="Auth" />
       </NavLink>
     </div>
   );
-
-  // console.log(props.isAuthenticated);
 
   if (props.isAuthenticated) {
     navItems = (
@@ -23,7 +24,6 @@ const Navigation = (props) => {
         <NavLink to="/"className="navlink">
           <NavigationItem name="Home" />
         </NavLink>
-        {/* <NavigationItem name="Genre" /> */}
         <NavLink to="/about">
           <NavigationItem name="About" />
         </NavLink>
@@ -35,6 +35,28 @@ const Navigation = (props) => {
         </NavLink>
       </div>
     );
+  }
+
+  if(props.isAdmin){
+    navItems=(
+      <div className="NavItems">
+        <NavLink to="/"className="navlink">
+          <NavigationItem name="Home" />
+        </NavLink>
+        <NavLink to="/about">
+          <NavigationItem name="About" />
+        </NavLink>
+        <NavLink to="/contact">
+          <NavigationItem name="Contact Us" />
+        </NavLink>
+        <NavLink to="/admin">
+          <NavigationItem name="Admin" />
+        </NavLink>
+        <NavLink to="/auth/logout">
+          <NavigationItem name="Logout" />
+        </NavLink>
+      </div>
+    )
   }
   return (
     <div className="Navigation">
