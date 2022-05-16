@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 import { updateObject, checkValidity } from "../../../shared/Utility";
 import Input from "../../Input/Input";
 import { Redirect } from "react-router";
-import "../../../shared/button.css"
+import "../../../shared/button.css";
+import ImageSlider from "../../Home/ImageSliders/ImageSliders";
 
 class Signup extends Component {
   state = {
@@ -90,7 +91,8 @@ class Signup extends Component {
     let errorMessage = null;
 
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
+      console.log(this.props.error);
+      errorMessage = <p>{this.props.error.message.replaceAll("_"," ")}</p>;
     }
 
     let authRedirect = null;
@@ -101,14 +103,21 @@ class Signup extends Component {
     return (
       <div className="Signup">
         {authRedirect}
+        <div className="slider">
+        <ImageSlider />
+        </div>
+        <div className="form">
         <h1>Sign up</h1>
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
+          <br/>
           {/* <input type="submit" value="Submit"/> */}
           <button type="submit" class="custom-btn btn-3"><span>Sign Up</span></ button>
         </form>
+        <br/>
         <NavLink to="/auth/login">Already have an account?</NavLink>
+        </div>
       </div>
     );
   }

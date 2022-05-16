@@ -1,9 +1,18 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./About.css";
+import {
+  faFacebookF,
+  faInstagram,
+  faLinkedinIn,
+  faMailchimp,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faMailBulk } from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
   return (
-    <div className="container">
+    <div className="about-container">
       <h2>About us</h2>
       <div className="content">
         <p>
@@ -23,6 +32,23 @@ const About = () => {
           Automotive, Lifestyle, Literature, Family & Relationships, Astrology &
           more
         </p>
+      </div>
+      <div className="social-media">
+        <div className="icon">
+          <FontAwesomeIcon icon={faFacebookF} size="2x" />
+        </div>
+        <div className="icon">
+          <FontAwesomeIcon icon={faInstagram} size="2x" />
+        </div>
+        <div className="icon">
+          <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
+        </div>
+        <div className="icon">
+          <FontAwesomeIcon icon={faTwitter} size="2x" />
+        </div>
+        <div className="icon">
+          <FontAwesomeIcon icon={faEnvelope} size="2x" />
+        </div>
       </div>
     </div>
   );

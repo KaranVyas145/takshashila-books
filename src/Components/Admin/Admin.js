@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { Component } from "react";
 import { updateObject, checkValidity } from "../../shared/Utility";
 import Input from "../Input/Input";
-import "../../shared/button.css"
+import "../../shared/button.css";
+import "./Admin.css"
 
 class Admin extends Component {
   componentDidMount(){
@@ -95,7 +96,6 @@ class Admin extends Component {
         elementType: "select",
         elementConfig: {
           options: [
-            { value: "drama", displayValue: "Drama" },
             { value: "romance", displayValue: "Romance" },
             { value: "fantasy", displayValue: "Fantasy" },
             { value: "horror", displayValue: "Horror" },
@@ -169,12 +169,13 @@ class Admin extends Component {
       errorMessage = <p>{this.props.error.message}</p>;
     }
     return (
-      <div className="Signup">
+      <div className="admin-form">
         <h1>Admin</h1>
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
           {/* <input type="submit" value="Submit" className="submit"/> */}
+          <br/>
           <button type="submit" class="custom-btn btn-3"><span>Add Book</span></ button>
         </form>
       </div>

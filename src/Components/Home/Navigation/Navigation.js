@@ -1,17 +1,19 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import NavigationItem from "./NavigationItem/NavigationItem";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 
 const Navigation = (props) => {
   let navItems = (
     <div className="NavItems">
-       <NavLink to="/about">
-          <NavigationItem name="About" />
-        </NavLink>
-        <NavLink to="/contact">
-          <NavigationItem name="Contact Us" />
-        </NavLink>
+      <NavLink to="/about">
+        <NavigationItem name="About" />
+      </NavLink>
+      <NavLink to="/contact">
+        <NavigationItem name="Contact Us" />
+      </NavLink>
       <NavLink to="/auth">
         <NavigationItem name="Auth" />
       </NavLink>
@@ -21,7 +23,7 @@ const Navigation = (props) => {
   if (props.isAuthenticated) {
     navItems = (
       <div className="NavItems">
-        <NavLink to="/"className="navlink">
+        <NavLink to="/" className="navlink">
           <NavigationItem name="Home" />
         </NavLink>
         <NavLink to="/about">
@@ -37,30 +39,32 @@ const Navigation = (props) => {
     );
   }
 
-  if(props.isAdmin){
-    navItems=(
+  if (props.isAdmin) {
+    navItems = (
       <div className="NavItems">
-        <NavLink to="/"className="navlink">
+        <NavLink style={{ textDecoration: "none" }} to="/">
           <NavigationItem name="Home" />
         </NavLink>
-        <NavLink to="/about">
+        <NavLink style={{ textDecoration: "none" }} to="/about">
           <NavigationItem name="About" />
         </NavLink>
-        <NavLink to="/contact">
+        <NavLink style={{ textDecoration: "none" }} to="/contact">
           <NavigationItem name="Contact Us" />
         </NavLink>
-        <NavLink to="/admin">
+        <NavLink style={{ textDecoration: "none" }} to="/admin">
           <NavigationItem name="Admin" />
         </NavLink>
-        <NavLink to="/auth/logout">
+        <NavLink style={{ textDecoration: "none" }} to="/auth/logout">
           <NavigationItem name="Logout" />
         </NavLink>
       </div>
-    )
+    );
   }
   return (
     <div className="Navigation">
-      <h3>Takashila</h3>
+      <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
+        <h3>Takshashila</h3>
+      </NavLink>
       {navItems}
     </div>
   );

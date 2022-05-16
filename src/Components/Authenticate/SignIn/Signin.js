@@ -7,7 +7,8 @@ import { connect } from "react-redux";
 import { updateObject, checkValidity } from "../../../shared/Utility";
 import Input from "../../Input/Input";
 import Redirect from "react-router/Redirect";
-import "../../../shared/button.css"
+import "../../../shared/button.css";
+import ImageSlider from "../../Home/ImageSliders/ImageSliders";
 
 class Signup extends Component {
   state = {
@@ -63,10 +64,10 @@ class Signup extends Component {
     event.preventDefault();
     this.props.onAuth(
       this.state.controls.email.value,
-      this.state.controls.password.value,
+      this.state.controls.password.value
     );
   };
-  
+
   render() {
     const formElementsArray = [];
     for (let key in this.state.controls) {
@@ -89,26 +90,35 @@ class Signup extends Component {
       />
     ));
     let errorMessage = null;
-
     if (this.props.error) {
-      errorMessage = <p>{this.props.error.message}</p>;
+      console.log(this.props.error);
+      errorMessage = <p>{this.props.error.message.replaceAll("_", " ")}</p>;
     }
 
     let authRedirect = null;
-    if(this.props.isAuthenticated){
-      authRedirect= <Redirect to="/" />
+    if (this.props.isAuthenticated) {
+      authRedirect = <Redirect to="/" />;
     }
 
     return (
       <div className="Signup">
+        <div className="slider">
+        <ImageSlider />
+        </div>
+        <div className="form">
         <h1>Sign in</h1>
         {errorMessage}
         <form onSubmit={this.submitHandler}>
           {form}
+          <br/>
           {/* <input type="submit" value="Submit"/> */}
-          <button type="submit" class="custom-btn btn-3"><span>Sign in</span></ button>
+          <button type="submit" class="custom-btn btn-3">
+            <span>Sign in</span>
+          </button>
         </form>
+        <br />
         <NavLink to="/auth/signup">Create a new account?</NavLink>
+        </div>
         {authRedirect}
       </div>
     );

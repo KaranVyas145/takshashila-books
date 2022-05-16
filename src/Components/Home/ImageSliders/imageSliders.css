@@ -6,3 +6,9 @@
     height: 500px;
     object-fit: cover;
 }
+
+.legend1{
+    padding:40px 0;
+    background-color: black;
+    color: white;
+}

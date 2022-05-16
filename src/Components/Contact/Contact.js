@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { updateObject, checkValidity } from "../../shared/Utility";
 import Input from "../Input/Input";
-import "../../shared/button.css"
+import "../../shared/button.css";
+import "./Contact.css"
 
 class Contact extends Component {
   state = {
@@ -88,10 +89,11 @@ class Contact extends Component {
       />
     ));
     return (
-      <div className="Signup">
+      <div className="contact-form">
         <h1>Contact Us</h1>
         <form >
           {form}
+          <br/>
           <button type="submit" class="custom-btn btn-3"><span>Submit</span></ button>
         </form>
       </div>
